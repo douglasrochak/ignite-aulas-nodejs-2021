@@ -1,4 +1,4 @@
-import { ICategoriesRepository } from '../repositories/ICategoryRepository'
+import { ISpecificationsRepository } from '../repositories/ISpecificationsRepository'
 
 interface IRequest {
   name: string
@@ -7,10 +7,11 @@ interface IRequest {
 
 class CreateSpecificationService {
 
-  constructor(private specificationRepository: ICategoriesRepository) { }
+  constructor(private specificationRepository: ISpecificationsRepository) { }
 
-  execute({ name, description }: IRequest) {
+  execute({ name, description }: IRequest): void {
     const specificationAlreadyExists = this.specificationRepository.findByName(name)
+    console.log('specificationAlreadyExists', specificationAlreadyExists)
 
     if (specificationAlreadyExists) {
       throw new Error('Category already exists!')
