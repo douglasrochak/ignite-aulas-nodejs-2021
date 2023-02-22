@@ -5,12 +5,6 @@ interface IRequest {
   description: string
 }
 
-/**
- * [X] - Definir o tipo de retorno
- * [X] - Alterar o retorno do erro
- * [X] - Acessar o repositório
- */
-
 class CreateCategoryUseCase {
 
   constructor(private categoriesRepository: ICategoriesRepository) { }
